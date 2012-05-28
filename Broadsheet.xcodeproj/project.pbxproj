@@ -146,6 +146,10 @@
 		CB260A7A1458B59200AA1E36 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB260A791458B59200AA1E36 /* SystemConfiguration.framework */; };
 		CB4B50071458B8AC00F1AEA7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = CB4B50061458B8AC00F1AEA7 /* about.html */; };
 		CB4B500D1458B9F400F1AEA7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4B500B1458B9F400F1AEA7 /* BaseTableViewController.m */; };
+		CBC8B8AA15742795002D5F37 /* WordPressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8A715742795002D5F37 /* WordPressModel.m */; };
+		CBC8B8AB15742795002D5F37 /* WordPressPostsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8A915742795002D5F37 /* WordPressPostsModel.m */; };
+		CBC8B8BA15742847002D5F37 /* WordPressImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8B915742847002D5F37 /* WordPressImageViewController.m */; };
+		CBC8B8BE15742911002D5F37 /* TTWordPressScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8BD15742911002D5F37 /* TTWordPressScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -566,6 +570,14 @@
 		CB4B50061458B8AC00F1AEA7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		CB4B500A1458B9F400F1AEA7 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		CB4B500B1458B9F400F1AEA7 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		CBC8B8A615742795002D5F37 /* WordPressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPressModel.h; sourceTree = "<group>"; };
+		CBC8B8A715742795002D5F37 /* WordPressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPressModel.m; sourceTree = "<group>"; };
+		CBC8B8A815742795002D5F37 /* WordPressPostsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPressPostsModel.h; sourceTree = "<group>"; };
+		CBC8B8A915742795002D5F37 /* WordPressPostsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPressPostsModel.m; sourceTree = "<group>"; };
+		CBC8B8B815742847002D5F37 /* WordPressImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPressImageViewController.h; sourceTree = "<group>"; };
+		CBC8B8B915742847002D5F37 /* WordPressImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPressImageViewController.m; sourceTree = "<group>"; };
+		CBC8B8BC15742911002D5F37 /* TTWordPressScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWordPressScrollView.h; sourceTree = "<group>"; };
+		CBC8B8BD15742911002D5F37 /* TTWordPressScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWordPressScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1189,6 +1201,7 @@
 		CB2609761458B38600AA1E36 /* TTWordPress */ = {
 			isa = PBXGroup;
 			children = (
+				CBC8B8BB15742911002D5F37 /* Views */,
 				CB2609771458B38600AA1E36 /* Controller */,
 				CB2609931458B38600AA1E36 /* Table */,
 			);
@@ -1210,6 +1223,8 @@
 				CB2609901458B38600AA1E36 /* WordPressCommentViewController.m */,
 				CB2609911458B38600AA1E36 /* WordPressPostViewController.h */,
 				CB2609921458B38600AA1E36 /* WordPressPostViewController.m */,
+				CBC8B8B815742847002D5F37 /* WordPressImageViewController.h */,
+				CBC8B8B915742847002D5F37 /* WordPressImageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1231,6 +1246,10 @@
 			isa = PBXGroup;
 			children = (
 				CB2609801458B38600AA1E36 /* Object */,
+				CBC8B8A615742795002D5F37 /* WordPressModel.h */,
+				CBC8B8A715742795002D5F37 /* WordPressModel.m */,
+				CBC8B8A815742795002D5F37 /* WordPressPostsModel.h */,
+				CBC8B8A915742795002D5F37 /* WordPressPostsModel.m */,
 				CB2609871458B38600AA1E36 /* WordPressPostModel.h */,
 				CB2609881458B38600AA1E36 /* WordPressPostModel.m */,
 			);
@@ -1318,6 +1337,15 @@
 				CB2609B61458B38600AA1E36 /* green-button.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		CBC8B8BB15742911002D5F37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8B8BC15742911002D5F37 /* TTWordPressScrollView.h */,
+				CBC8B8BD15742911002D5F37 /* TTWordPressScrollView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1669,6 +1697,10 @@
 				CB260A121458B38600AA1E36 /* WordPressPostTableCell.m in Sources */,
 				CB260A131458B38600AA1E36 /* TableItemDisclosure.m in Sources */,
 				CB4B500D1458B9F400F1AEA7 /* BaseTableViewController.m in Sources */,
+				CBC8B8AA15742795002D5F37 /* WordPressModel.m in Sources */,
+				CBC8B8AB15742795002D5F37 /* WordPressPostsModel.m in Sources */,
+				CBC8B8BA15742847002D5F37 /* WordPressImageViewController.m in Sources */,
+				CBC8B8BE15742911002D5F37 /* TTWordPressScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

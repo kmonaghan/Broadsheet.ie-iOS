@@ -4,6 +4,19 @@
     font-weight: bold;
 }
 
+.title-color {
+
+}
+
+.date-color {
+    color:#CC0000;
+}
+
+#singlentry {
+    width: 300px;
+    padding: 0 10px;
+}
+
 .post object, .post embed, .post video, .post iframe {
     height: auto;
     max-height: 280px;

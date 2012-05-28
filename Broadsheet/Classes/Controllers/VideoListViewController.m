@@ -31,7 +31,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)createModel {
-	self.dataSource = [[[WordPressDataSource alloc] initWithUrl:@"http://broadsheet.ie/?json=get_category_posts&id=3061"] autorelease];
+	self.dataSource = [[[WordPressDataSource alloc] initWithApiUrl:@"?json=get_category_posts&id=3061"] autorelease];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

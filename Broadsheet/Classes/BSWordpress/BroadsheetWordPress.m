@@ -14,32 +14,39 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation BroadsheetWordPress
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) 
+    {
 		
-		UIImage *navimage;
-
-		NSDate *today = [NSDate date]; 
-		NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-		[dateFormat setDateFormat:@"EEE"];
-		if (![[dateFormat stringFromDate:today] isEqualToString:@"Fri"])
-		{
-			navimage = [UIImage imageNamed: @"broadsheet_black.png"];
-		}
-		else 
-		{
-			navimage = [UIImage imageNamed: @"broadsheet_colour.png"];
-		}
-
-		[dateFormat release];
-		
-		UIImageView *imageview = [[UIImageView alloc] initWithImage:navimage];
-		
-		// set the text view to the image view
-		self.navigationItem.titleView = imageview;
-		
-		[imageview release];
 	}
 	return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIImage *navimage;
+    
+    NSDate *today = [NSDate date]; 
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EEE"];
+    if (![[dateFormat stringFromDate:today] isEqualToString:@"Fri"])
+    {
+        navimage = [UIImage imageNamed: @"broadsheet_black.png"];
+    }
+    else 
+    {
+        navimage = [UIImage imageNamed: @"broadsheet_colour.png"];
+    }
+    
+    [dateFormat release];
+    
+    UIImageView *imageview = [[UIImageView alloc] initWithImage:navimage];
+    
+    // set the text view to the image view
+    self.navigationItem.titleView = imageview;
+    
+    [imageview release];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

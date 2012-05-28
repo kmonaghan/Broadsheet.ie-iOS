@@ -17,3 +17,9 @@
 
 #define WP_NAVIGATION_BAR		nil;
 #define WP_STATUS_BAR			UIStatusBarStyleDefault;
+
+/**
+ *  If you are only displaying extracts on a post list page, set this to
+ *  YES so the app knows to retrieve the full post from the site.
+ */
+#define WP_LOAD_POST            NO
