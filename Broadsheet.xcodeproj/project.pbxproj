@@ -150,6 +150,13 @@
 		CBC8B8AB15742795002D5F37 /* WordPressPostsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8A915742795002D5F37 /* WordPressPostsModel.m */; };
 		CBC8B8BA15742847002D5F37 /* WordPressImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8B915742847002D5F37 /* WordPressImageViewController.m */; };
 		CBC8B8BE15742911002D5F37 /* TTWordPressScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8BD15742911002D5F37 /* TTWordPressScrollView.m */; };
+		CBC8B8CD1574368B002D5F37 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8B8CB1574368B002D5F37 /* delete.png */; };
+		CBC8B8CE1574368B002D5F37 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8B8CC1574368B002D5F37 /* delete@2x.png */; };
+		CBC8B8D1157437F4002D5F37 /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8B8CF157437F4002D5F37 /* 86-camera.png */; };
+		CBC8B8D2157437F4002D5F37 /* 86-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8B8D0157437F4002D5F37 /* 86-camera@2x.png */; };
+		CBC8B8DA15743837002D5F37 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8D515743837002D5F37 /* UIImage+Alpha.m */; };
+		CBC8B8DB15743837002D5F37 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8D715743837002D5F37 /* UIImage+RoundedCorner.m */; };
+		CBC8B8DC15743837002D5F37 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC8B8D915743837002D5F37 /* UIImage+Resize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -578,6 +585,16 @@
 		CBC8B8B915742847002D5F37 /* WordPressImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPressImageViewController.m; sourceTree = "<group>"; };
 		CBC8B8BC15742911002D5F37 /* TTWordPressScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWordPressScrollView.h; sourceTree = "<group>"; };
 		CBC8B8BD15742911002D5F37 /* TTWordPressScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWordPressScrollView.m; sourceTree = "<group>"; };
+		CBC8B8CB1574368B002D5F37 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		CBC8B8CC1574368B002D5F37 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		CBC8B8CF157437F4002D5F37 /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
+		CBC8B8D0157437F4002D5F37 /* 86-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera@2x.png"; sourceTree = "<group>"; };
+		CBC8B8D415743837002D5F37 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		CBC8B8D515743837002D5F37 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		CBC8B8D615743837002D5F37 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		CBC8B8D715743837002D5F37 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		CBC8B8D815743837002D5F37 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		CBC8B8D915743837002D5F37 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -752,6 +769,7 @@
 			children = (
 				CB2608B41458B38600AA1E36 /* Atlas.h */,
 				CB2608B51458B38600AA1E36 /* Atlas.m */,
+				CBC8B8D315743820002D5F37 /* Categories */,
 				CB2608B61458B38600AA1E36 /* BSWordpress */,
 				CB2608BA1458B38600AA1E36 /* Common */,
 				CB2608BB1458B38600AA1E36 /* Controllers */,
@@ -1313,6 +1331,8 @@
 		CB2609A01458B38600AA1E36 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CBC8B8CB1574368B002D5F37 /* delete.png */,
+				CBC8B8CC1574368B002D5F37 /* delete@2x.png */,
 				CB2609A11458B38600AA1E36 /* 166-newspaper.png */,
 				CB2609A21458B38600AA1E36 /* 166-newspaper@2x.png */,
 				CB2609A31458B38600AA1E36 /* 167-upload-photo.png */,
@@ -1335,6 +1355,8 @@
 				CB2609B41458B38600AA1E36 /* Chompski_163x127.jpg */,
 				CB2609B51458B38600AA1E36 /* green-button-highlight.png */,
 				CB2609B61458B38600AA1E36 /* green-button.png */,
+				CBC8B8CF157437F4002D5F37 /* 86-camera.png */,
+				CBC8B8D0157437F4002D5F37 /* 86-camera@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -1346,6 +1368,19 @@
 				CBC8B8BD15742911002D5F37 /* TTWordPressScrollView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CBC8B8D315743820002D5F37 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8B8D415743837002D5F37 /* UIImage+Alpha.h */,
+				CBC8B8D515743837002D5F37 /* UIImage+Alpha.m */,
+				CBC8B8D615743837002D5F37 /* UIImage+RoundedCorner.h */,
+				CBC8B8D715743837002D5F37 /* UIImage+RoundedCorner.m */,
+				CBC8B8D815743837002D5F37 /* UIImage+Resize.h */,
+				CBC8B8D915743837002D5F37 /* UIImage+Resize.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1595,6 +1630,10 @@
 				CB260A301458B39D00AA1E36 /* Default.png in Resources */,
 				CB260A321458B3A200AA1E36 /* Default@2x.png in Resources */,
 				CB4B50071458B8AC00F1AEA7 /* about.html in Resources */,
+				CBC8B8CD1574368B002D5F37 /* delete.png in Resources */,
+				CBC8B8CE1574368B002D5F37 /* delete@2x.png in Resources */,
+				CBC8B8D1157437F4002D5F37 /* 86-camera.png in Resources */,
+				CBC8B8D2157437F4002D5F37 /* 86-camera@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1701,6 +1740,9 @@
 				CBC8B8AB15742795002D5F37 /* WordPressPostsModel.m in Sources */,
 				CBC8B8BA15742847002D5F37 /* WordPressImageViewController.m in Sources */,
 				CBC8B8BE15742911002D5F37 /* TTWordPressScrollView.m in Sources */,
+				CBC8B8DA15743837002D5F37 /* UIImage+Alpha.m in Sources */,
+				CBC8B8DB15743837002D5F37 /* UIImage+RoundedCorner.m in Sources */,
+				CBC8B8DC15743837002D5F37 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

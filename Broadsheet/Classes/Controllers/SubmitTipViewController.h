@@ -8,7 +8,12 @@
 
 #import "BaseTableViewController.h"
 
-@interface SubmitTipViewController : BaseTableViewController <UITextFieldDelegate, UITextViewDelegate, TTURLRequestDelegate> {
+@interface SubmitTipViewController : BaseTableViewController <UITextFieldDelegate, 
+                                                                UITextViewDelegate, 
+                                                                TTURLRequestDelegate,
+                                                                UIImagePickerControllerDelegate, 
+                                                                UINavigationControllerDelegate,
+                                                                UIActionSheetDelegate> {
 	UITextField*	nameField;
 	UITextField*	emailfield;
 	UITextView*		message;
@@ -16,6 +21,12 @@
 	NSMutableDictionary* _postParams;
 	
 	TTURLRequest*	_request;
+    
+    NSMutableArray  *_images;
+    UIImageView     *_imageToSubmit; 
+    UIImagePickerController *_picker;
 }
+
+- (void)send;
 
 @end
