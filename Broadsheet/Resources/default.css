@@ -13,12 +13,16 @@
 }
 
 #singlentry {
-    width: 300px;
-    padding: 0 10px;
+
+}
+
+#singlentry img {
+    width: 100% !important;
+    height: auto;
 }
 
 .post object, .post embed, .post video, .post iframe {
     height: auto;
-    max-height: 280px;
+
     width: 100% !important;
 }

@@ -161,7 +161,7 @@
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         [df setDateFormat:WP_POST_DATE_FORMAT];
         
-        NSString* postHtml = [NSString stringWithFormat:@"<html><head><link href='default.css' rel='stylesheet' type='text/css' /></head><body><div id='maincontent' class='content'><div class='post'><div id='title'>%@ <span class='date-color'>%@</span></div><div id='singlentry'>%@</div></div></div></body></html>",
+        NSString* postHtml = [NSString stringWithFormat:@"<html><head><script type='text/javascript'>window.onload = function() {window.location.href = 'ready://' + document.body.offsetHeight;}</script><link href='default.css' rel='stylesheet' type='text/css' /></head><body><div id='maincontent' class='content'><div class='post'><div id='title'>%@ <span class='date-color'>%@</span></div><div id='singlentry'>%@</div></div></div></body></html>",
                               post.post.title,
                               [df stringFromDate:post.post.postDate],
                               post.post.content];
@@ -183,15 +183,29 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked)
+    NSLog(@"[[request URL] scheme]: %@", [[request URL] absoluteString]);
+    
+    if (navigationType == UIWebViewNavigationTypeOther) {
+        if ([[[request URL] scheme] isEqualToString:@"ready"]) {
+            float contentHeight = [[[request URL] host] floatValue];
+            NSLog(@"contentHeight: %f", contentHeight);
+            CGRect fr = webView.frame;
+            fr.size = CGSizeMake(webView.frame.size.width, contentHeight);
+            webView.frame = fr;
+            return NO;
+        }
+    }
+    else if (navigationType == UIWebViewNavigationTypeLinkClicked)
 	{
         NSArray *parts = [[[request URL] absoluteString] componentsSeparatedByString:@"."];
         
-        if ([[parts lastObject] isEqualToString:@"jpg"] || [[parts lastObject] isEqualToString:@"jpeg"] 
-            || [[parts lastObject] isEqualToString:@"png"]
-            || [[parts lastObject] isEqualToString:@"gif"])
+        NSString *ext = [[parts lastObject] lowercaseString];
+        
+        if ([ext isEqualToString:@"jpg"] || [ext isEqualToString:@"jpeg"] 
+            || [ext isEqualToString:@"png"]
+            || [ext isEqualToString:@"gif"])
         {
-            NSLog(@"captured image: %@", [[request URL] absoluteString]);
+            //NSLog(@"captured image: %@", [[request URL] absoluteString]);
             
             WordPressImageViewController* commentview = [[WordPressImageViewController alloc] initWithUrl:[[request URL] absoluteString]];
 			[self.navigationController pushViewController:commentview animated:YES];
@@ -215,6 +229,8 @@
     CGSize webViewSize = [webView sizeThatFits:CGSizeZero];
 
     CGFloat newHeight = (webViewSize.height > 294) ? webViewSize.height : 304;
+    
+    NSLog(@"newHeight: %f", newHeight);
     
 	UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, newHeight)];
 	headerView.opaque = NO;
