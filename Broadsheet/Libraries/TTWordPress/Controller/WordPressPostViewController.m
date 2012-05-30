@@ -89,6 +89,7 @@
     TT_RELEASE_SAFELY(_activityView);
     TT_RELEASE_SAFELY(_post);
     TT_RELEASE_SAFELY(_url);
+    TT_RELEASE_SAFELY(_postWebView);
     
 	[super dealloc];
 }
@@ -156,7 +157,7 @@
         
         [line release];
         
-        UIWebView* web = [[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)] autorelease];
+        _postWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         [df setDateFormat:WP_POST_DATE_FORMAT];
@@ -170,14 +171,62 @@
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSURL *baseURL = [NSURL fileURLWithPath:path];
         
-        [web loadHTMLString:postHtml baseURL:baseURL];
+        [_postWebView loadHTMLString:postHtml baseURL:baseURL];
         
-        web.delegate = self;
+        _postWebView.delegate = self;
         
-        [self.tableView insertSubview:web aboveSubview:self.tableView.tableHeaderView];
+        [self.tableView insertSubview:_postWebView aboveSubview:self.tableView.tableHeaderView];
         
         [self showActivity:YES];
     } 
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)resizeWebView:(CGFloat)height
+{
+    CGFloat newHeight = 0;
+    
+    if (height == 0)
+    {
+        CGSize webViewSize = [_postWebView sizeThatFits:CGSizeZero];
+    
+        newHeight = (webViewSize.height > 294) ? webViewSize.height : 304;
+    }
+    else
+    {
+        newHeight = height;
+    }
+    
+    newHeight += 5;
+    
+    NSLog(@"newHeight: %f", newHeight);
+    
+	UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, newHeight + 2)];
+	headerView.opaque = NO;
+    headerView.backgroundColor = [UIColor clearColor];
+	[headerView setAlpha:0];
+    
+    _postWebView.frame = CGRectMake(0, 0, 320, newHeight);
+    
+	for (id subview in _postWebView.subviews){
+		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+		{
+			((UIScrollView *)subview).bounces = NO;
+			((UIScrollView *)subview).scrollsToTop = NO;
+			((UIScrollView *)subview).scrollEnabled = NO;
+		}
+	}	
+    
+    if (height)
+    {
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, newHeight+1, 320, 1)];
+        line.backgroundColor = [UIColor lightGrayColor];
+    
+        [_postWebView addSubview:line];
+        
+        [line release];
+    }
+    
+	self.tableView.tableHeaderView = headerView;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,12 +235,10 @@
     NSLog(@"[[request URL] scheme]: %@", [[request URL] absoluteString]);
     
     if (navigationType == UIWebViewNavigationTypeOther) {
-        if ([[[request URL] scheme] isEqualToString:@"ready"]) {
-            float contentHeight = [[[request URL] host] floatValue];
-            NSLog(@"contentHeight: %f", contentHeight);
-            CGRect fr = webView.frame;
-            fr.size = CGSizeMake(webView.frame.size.width, contentHeight);
-            webView.frame = fr;
+        if ([[[request URL] scheme] isEqualToString:@"ready"]) 
+        {
+            [self resizeWebView:[[[request URL] host] floatValue]];
+            
             return NO;
         }
     }
@@ -226,36 +273,7 @@
 {	
     [self showActivity:NO];
 	
-    CGSize webViewSize = [webView sizeThatFits:CGSizeZero];
-
-    CGFloat newHeight = (webViewSize.height > 294) ? webViewSize.height : 304;
-    
-    NSLog(@"newHeight: %f", newHeight);
-    
-	UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, newHeight)];
-	headerView.opaque = NO;
-    headerView.backgroundColor = [UIColor clearColor];
-	[headerView setAlpha:0];
-    
-    webView.frame = CGRectMake(0, 0, 320, newHeight);
-    
-	for (id subview in webView.subviews){
-		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
-		{
-			((UIScrollView *)subview).bounces = NO;
-			((UIScrollView *)subview).scrollsToTop = NO;
-			((UIScrollView *)subview).scrollEnabled = NO;
-		}
-	}	
-    
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, newHeight - 1, 320, 1)];
-    line.backgroundColor = [UIColor lightGrayColor];
-    
-    [webView addSubview:line];
-    
-	self.tableView.tableHeaderView = headerView;
-
-    [line release];
+    [self resizeWebView:0.0];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
